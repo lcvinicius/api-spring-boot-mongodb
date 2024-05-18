@@ -88,7 +88,7 @@ public class UserResource {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
 			}
 			var user = obj.get();
-			BeanUtils.copyProperties(userDTO, user);
+			BeanUtils.copyProperties(userDTO, user, "id");
 			 return ResponseEntity.status(HttpStatus.OK).body(userRepository.save(user));
 		
 		
